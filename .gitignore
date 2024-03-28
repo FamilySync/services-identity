@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 .idea/.idea.FamilySync.Services.Registry/.idea/vcs.xml
 /.idea/.idea.FamilySync.Core/.idea
+/.idea
