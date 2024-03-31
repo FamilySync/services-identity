@@ -21,4 +21,8 @@
       <Content Remove="NuGet.Config" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
 </Project>

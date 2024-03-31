@@ -10,7 +10,10 @@ namespace FamilySync.Services.Identity.Services;
 
 public interface IIdentityService
 {
+    Task<IdentityDTO> Get(GetIdentityRequest request);
     Task<IdentityDTO> Get(Guid id);
+    Task<IdentityDTO> GetByUsername(string username);
+    Task<IdentityDTO> GetByEmail(string email);
     Task<IdentityResponse> Create(CreateIdentityRequest request);
 }
 
@@ -23,13 +26,67 @@ public class IdentityService : IIdentityService
         _context = context;
     }
 
+    public async Task<IdentityDTO> Get(GetIdentityRequest request)
+    {
+        var entity = new Models.Entities.Identity();
+        if (request.ID is not null)
+        {
+            entity = await _context.Identities.FirstOrDefaultAsync(x => x.ID == request.ID);
+        }
+        else if (request.Username is not null)
+        {
+            entity = await _context.Identities.FirstOrDefaultAsync(x => x.Username == request.Username);
+        }
+        else if (request.Email is not null)
+        {
+            entity = await _context.Identities.FirstOrDefaultAsync(x => x.Email == request.Email);
+        }
+
+        if (entity is null)
+        {
+            throw new NotFoundException("Failed to find Identity with provided information!");
+        }
+
+        var dto = entity.Adapt<IdentityDTO>();
+
+        return dto;
+    }
+
     public async Task<IdentityDTO> Get(Guid id)
     {
-        var entity = await _context.Identities.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.Identities.FirstOrDefaultAsync(x => x.ID == id);
 
         if (entity is null)
         {
             throw new NotFoundException(typeof(Models.Entities.Identity), id.ToString());
+        }
+
+        var dto = entity.Adapt<IdentityDTO>();
+
+        return dto;
+    }
+
+    public async Task<IdentityDTO> GetByUsername(string username)
+    {
+        var entity = await _context.Identities.FirstOrDefaultAsync(x => x.Username == username);
+
+        if (entity is null)
+        {
+            throw new NotFoundException(typeof(Models.Entities.Identity), username);
+        }
+
+        var dto = entity.Adapt<IdentityDTO>();
+
+        return dto;
+    }
+
+    public async Task<IdentityDTO> GetByEmail(string email)
+    {
+        var entity = await _context.Identities.FirstOrDefaultAsync(x => x.Email == email);
+
+        if (entity is null)
+        {
+            throw new NotFoundException(typeof(Models.Entities.Identity), email);
         }
 
         var dto = entity.Adapt<IdentityDTO>();

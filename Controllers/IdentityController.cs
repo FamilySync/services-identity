@@ -16,13 +16,13 @@ public class IdentityController : ControllerBase
    {
       _service = service;
    }
-
-   [HttpGet("{id}")]
+   
+   [HttpGet("Identity")]
    [ProducesResponseType(StatusCodes.Status404NotFound)]
    [ProducesResponseType(typeof(IdentityDTO), StatusCodes.Status200OK)]
-   public async Task<ActionResult<IdentityDTO>> Get([FromRoute] Guid id)
+   public async Task<ActionResult<IdentityDTO>> Get([FromQuery] GetIdentityRequest request)
    {
-      var result = await _service.Get(id);
+      var result = await _service.Get(request);
 
       return Ok(result);
    }

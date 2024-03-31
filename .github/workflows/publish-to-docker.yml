@@ -1,0 +1,13 @@
+name: Publish docker container to Dockerhub
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+jobs:
+  build:
+    uses: familysync/core-pipelines/.github/workflows/docker-publish.yaml@main
+    secrets: inherit
+    with:
+      repository: "familysync/identity"
+      project: "FamilySync.Services.Identity"

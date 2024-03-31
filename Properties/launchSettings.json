@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "IIS Express": {
+    "FamilySync.Services.Identity": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/swagger",
