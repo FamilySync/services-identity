@@ -1,23 +1,23 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
+﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG version
 WORKDIR /src
-COPY ["FamilySync.Services.Identity.csproj", "./"]
-RUN dotnet restore "FamilySync.Services.Identity.csproj"
+
+WORKDIR /src
+
+COPY ["FamilySync.Services.Identity/FamilySync.Services.Identity.csproj", "FamilySync.Services.Identity/"]
+COPY ["NuGet.config", "FamilySync.Services.Identity/"]
+
+RUN dotnet restore "FamilySync.Services.Identity/FamilySync.Services.Identity.csproj" --configfile FamilySync.Services.Identity/NuGet.config
+
 COPY . .
-WORKDIR "/src/"
-RUN dotnet build "FamilySync.Services.Identity.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "FamilySync.Services.Identity.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "FamilySync.Services.Identity/FamilySync.Services.Identity.csproj" -c Release -o out /p:Version=$version
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+EXPOSE 80
+EXPOSE 443
+
+COPY --from=build /src/out .
 ENTRYPOINT ["dotnet", "FamilySync.Services.Identity.dll"]
