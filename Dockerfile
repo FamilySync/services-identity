@@ -1,8 +1,13 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG version
+ARG username
+ARG token
 WORKDIR /src
 
-WORKDIR /src
+RUN echo "machine github.com login $username $token" > ~/.netrc
+RUN echo "machine api.github.com login $username password $token" >> ~/.netrc
+
+RUN chmod 600 ~/.netrc
 
 COPY ["FamilySync.Services.Identity/FamilySync.Services.Identity.csproj", "FamilySync.Services.Identity/"]
 COPY ["NuGet.config", "FamilySync.Services.Identity/"]
