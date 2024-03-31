@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Services.Identity", "FamilySync.Services.Identity.csproj", "{DDF65628-A111-4E77-B6BA-4461E86D074F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C0125A0-38B5-462C-8CD7-988C58607E3C}"
 	ProjectSection(SolutionItems) = preProject
 		Dockerfile = Dockerfile
@@ -10,15 +8,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Services.Identity", "FamilySync.Services.Identity\FamilySync.Services.Identity.csproj", "{601923D6-03FF-479E-ACD1-3B842E87D201}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDF65628-A111-4E77-B6BA-4461E86D074F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDF65628-A111-4E77-B6BA-4461E86D074F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDF65628-A111-4E77-B6BA-4461E86D074F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDF65628-A111-4E77-B6BA-4461E86D074F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601923D6-03FF-479E-ACD1-3B842E87D201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601923D6-03FF-479E-ACD1-3B842E87D201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601923D6-03FF-479E-ACD1-3B842E87D201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601923D6-03FF-479E-ACD1-3B842E87D201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
