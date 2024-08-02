@@ -8,14 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\dotnet-service-core\FamilySync.Core.Abstractions\FamilySync.Core.Abstractions.csproj" />
-      <ProjectReference Include="..\..\dotnet-service-core\FamilySync.Core.Authentication\FamilySync.Core.Authentication.csproj" />
-      <ProjectReference Include="..\..\dotnet-service-core\FamilySync.Core\FamilySync.Core.csproj" />
       <ProjectReference Include="..\FamilySync.Services.Identity.Models\FamilySync.Services.Identity.Models.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
     </ItemGroup>
 
 </Project>

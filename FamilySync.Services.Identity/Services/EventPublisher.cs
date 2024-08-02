@@ -16,7 +16,7 @@ public class EventPublisher : IEventPublisher
 
     public Task Logout(Guid userID)
     {
-        _logger.LogError("Failed to logout user with ID {id}. Publisher / Event service NOT IMPLEMENTED!", userID);
+        _logger.LogError("Failed to publish logout event for user with ID {id}. NOT IMPLEMENTED!", userID);
         
         return Task.CompletedTask;
     }

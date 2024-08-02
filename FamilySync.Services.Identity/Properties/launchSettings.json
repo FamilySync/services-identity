@@ -19,6 +19,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "FamilySync.Services.Identity.SSL": {
+      "commandName": "IISExpress",
+      "launchBrowser": false,
+      "launchUrl": "api/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "FamilySync.Services.Identity.Browser": {
       "commandName": "Project",
       "dotnetRunMessages": true,
@@ -28,6 +36,6 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+      }
     }
   }
-}

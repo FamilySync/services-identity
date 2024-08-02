@@ -10,9 +10,7 @@ namespace FamilySync.Services.Identity;
 
 public class Configuration : ServiceConfiguration
 {
-    public override void Configure(IApplicationBuilder builder)
-    {
-    }
+    public override void Configure(IApplicationBuilder builder) { }
 
     public override void ConfigureServices(IServiceCollection services)
     {
@@ -20,7 +18,7 @@ public class Configuration : ServiceConfiguration
         services.AddMySQLContext<IdentityContext>("identity", Configuration);
         
         // Options
-        services.Configure<AuthTokenConfig>(Configuration.GetRequiredSection(AuthTokenConfig.Section));
+        services.Configure<AuthTokenConfigOptions>(Configuration.GetRequiredSection(AuthTokenConfigOptions.Section));
         
         // Services
         services.AddIdentity<FamilySyncIdentity, IdentityRole<Guid>>()
@@ -30,5 +28,6 @@ public class Configuration : ServiceConfiguration
         services.AddScoped<IIdentityService, IdentityService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IEventPublisher, EventPublisher>();
+        
     }
 }

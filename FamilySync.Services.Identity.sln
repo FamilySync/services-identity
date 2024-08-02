@@ -1,18 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Core", "..\dotnet-service-core\FamilySync.Core\FamilySync.Core.csproj", "{E5843BFC-7121-4F90-905F-0F42140620E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Core.Authentication", "..\dotnet-service-core\FamilySync.Core.Authentication\FamilySync.Core.Authentication.csproj", "{670B874F-EB15-412C-B074-B3E1716E5152}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Core.Abstractions", "..\dotnet-service-core\FamilySync.Core.Abstractions\FamilySync.Core.Abstractions.csproj", "{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Services.Identity", "FamilySync.Services.Identity\FamilySync.Services.Identity.csproj", "{8A8AD569-C802-48AB-963B-75AEEAAEF9BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3A947E1-6924-4525-960D-C48445166DAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Services.Identity.Models", "FamilySync.Services.Identity.Models\FamilySync.Services.Identity.Models.csproj", "{5522D3BD-30DC-460C-81FC-0F547FD4646D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilySync.Core.Persistence", "..\dotnet-service-core\FamilySync.Core.Persistence\FamilySync.Core.Persistence.csproj", "{B262C5FA-4092-4B95-9795-012B75801D9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,18 +12,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E5843BFC-7121-4F90-905F-0F42140620E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5843BFC-7121-4F90-905F-0F42140620E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5843BFC-7121-4F90-905F-0F42140620E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5843BFC-7121-4F90-905F-0F42140620E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{670B874F-EB15-412C-B074-B3E1716E5152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{670B874F-EB15-412C-B074-B3E1716E5152}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{670B874F-EB15-412C-B074-B3E1716E5152}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{670B874F-EB15-412C-B074-B3E1716E5152}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A8AD569-C802-48AB-963B-75AEEAAEF9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A8AD569-C802-48AB-963B-75AEEAAEF9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A8AD569-C802-48AB-963B-75AEEAAEF9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,15 +20,7 @@ Global
 		{5522D3BD-30DC-460C-81FC-0F547FD4646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5522D3BD-30DC-460C-81FC-0F547FD4646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5522D3BD-30DC-460C-81FC-0F547FD4646D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B262C5FA-4092-4B95-9795-012B75801D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B262C5FA-4092-4B95-9795-012B75801D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B262C5FA-4092-4B95-9795-012B75801D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B262C5FA-4092-4B95-9795-012B75801D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E5843BFC-7121-4F90-905F-0F42140620E4} = {F3A947E1-6924-4525-960D-C48445166DAD}
-		{3A8E739C-7518-4DC7-8AA6-7F7B59DD909E} = {F3A947E1-6924-4525-960D-C48445166DAD}
-		{670B874F-EB15-412C-B074-B3E1716E5152} = {F3A947E1-6924-4525-960D-C48445166DAD}
-		{B262C5FA-4092-4B95-9795-012B75801D9A} = {F3A947E1-6924-4525-960D-C48445166DAD}
 	EndGlobalSection
 EndGlobal

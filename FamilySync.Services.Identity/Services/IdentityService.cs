@@ -13,7 +13,7 @@ namespace FamilySync.Services.Identity.Services;
 public interface IIdentityService
 {
     public Task<IdentityDTO> Create(Create request);
-    public Task<IdentityDTO> Get(Guid id, CancellationToken cancellationToken);
+    public Task<IdentityDTO> Get(Guid id);
     public Task<FamilySyncIdentity> Login(Login request);
 }
 
@@ -22,8 +22,7 @@ public class IdentityService : IIdentityService
     private readonly UserManager<FamilySyncIdentity> _userManager;
     private readonly SignInManager<FamilySyncIdentity> _signInManager;
     private readonly ILogger<IdentityService> _logger;
-
-
+    
     public IdentityService(UserManager<FamilySyncIdentity> userManager, ILogger<IdentityService> logger, SignInManager<FamilySyncIdentity> signInManager)
     {
         _userManager = userManager;
@@ -73,13 +72,14 @@ public class IdentityService : IIdentityService
         return dto;
     }
 
-    public async Task<IdentityDTO> Get(Guid id, CancellationToken cancellationToken)
+    public async Task<IdentityDTO> Get(Guid id)
     {
         var entity = await _userManager.FindByIdAsync(id.ToString());
 
         if (entity is null)
         {
-            throw new NotFoundException($"Failed to find {typeof(FamilySyncIdentity)} with íd {id}");
+            _logger.LogError("Failed to find {type} with id {id}", nameof(FamilySyncIdentity), id);
+            throw new NotFoundException($"Failed to find {nameof(FamilySyncIdentity)} with íd {id}");
         }
 
         var dto = entity.Adapt<IdentityDTO>();
@@ -93,6 +93,7 @@ public class IdentityService : IIdentityService
         
         if (entity is null)
         {
+            _logger.LogError("Failed to find {type} with email: {email}", nameof(FamilySyncIdentity), request.Email);
             throw new NotFoundException($"Failed to find {typeof(FamilySyncIdentity)} with email: {request.Email}");
         }
 
@@ -121,7 +122,7 @@ public class IdentityService : IIdentityService
             new("uid", entity.UserID.ToString()!),
             new(JwtRegisteredClaimNames.Sub, entity.UserName!),
             new(JwtRegisteredClaimNames.Email, entity.Email!),
-            new("fs", Enum.GetName(ClaimLevel.User)!)
+            new("fs", Enum.GetName(ClaimLevel.Admin)!)
         };
 
         return await _userManager.AddClaimsAsync(entity, claims);

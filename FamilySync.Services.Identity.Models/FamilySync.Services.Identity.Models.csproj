@@ -9,10 +9,6 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\dotnet-service-core\FamilySync.Core.Persistence\FamilySync.Core.Persistence.csproj" />
-    </ItemGroup>
     
 
 </Project>
