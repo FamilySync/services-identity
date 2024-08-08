@@ -79,8 +79,6 @@ public class TokenService : ITokenService
         {
             await _eventPublisher.Logout(token.UserID);
         }
-        
-        response.Cookies.Delete(_tokenConfig.RefreshToken.CookieKey);
     }
 
     public async Task<AuthTokenDTO> Refresh(HttpRequest request)

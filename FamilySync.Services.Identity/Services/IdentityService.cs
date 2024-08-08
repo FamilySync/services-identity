@@ -122,7 +122,7 @@ public class IdentityService : IIdentityService
             new("uid", entity.UserID.ToString()!),
             new(JwtRegisteredClaimNames.Sub, entity.UserName!),
             new(JwtRegisteredClaimNames.Email, entity.Email!),
-            new("fs", Enum.GetName(ClaimLevel.Admin)!)
+            new("fs", Enum.GetName(ClaimLevel.User)!)
         };
 
         return await _userManager.AddClaimsAsync(entity, claims);

@@ -13,5 +13,16 @@ public static class HttpResponseExtensions
             Path = path,
             IsEssential = true
         });
+    }  
+    public static void DeleteCookie(this HttpResponse response, string key, string path)
+    {
+        response.Cookies.Delete(key, new()
+        {
+            SameSite = SameSiteMode.Strict,
+            Secure = true,
+            HttpOnly = true,
+            Path = path,
+            IsEssential = true
+        });
     }
 }
